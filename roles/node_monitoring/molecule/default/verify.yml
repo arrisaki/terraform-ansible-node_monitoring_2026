@@ -1,0 +1,15 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Check metrics endpoint
+      ansible.builtin.uri:
+        url: http://localhost:8080/metrics
+        status_code: 200
+      register: metrics
+      retries: 10
+      delay: 3
+      until: metrics.status == 200
+

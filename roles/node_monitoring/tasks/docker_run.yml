@@ -1,0 +1,9 @@
+---
+- name: Run docker container
+  become: true  
+  community.docker.docker_container:
+    name: node-monitoring 
+    image: node-monitoring
+    state: started
+    ports:
+      - "8080:8080"

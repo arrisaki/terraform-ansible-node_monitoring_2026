@@ -1,0 +1,12 @@
+- name: systemd tasks
+  ansible.builtin.include_tasks:
+    file: systemd.yml
+  when: deploy_mode == 'systemd'
+
+- name: docker tasks
+  ansible.builtin.include_tasks:
+    file: docker.yml
+  when: deploy_mode == 'docker'
+
+
+  

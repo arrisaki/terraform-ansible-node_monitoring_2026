@@ -1,0 +1,16 @@
+---
+- name: Install docker debian
+  include_tasks: docker_debian.yml
+  
+  when: ansible_facts['os_family'] == "Debian"  
+
+- name: Install docker redhat 
+  include_tasks: docker_redhat.yml
+  
+  when: ansible_facts['os_family'] == "RedHat" 
+
+- name: Build docker image
+  include_tasks: docker_build.yml
+
+- name: Run docker container
+  include_tasks: docker_run.yml                                                                                                

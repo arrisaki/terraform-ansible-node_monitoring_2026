@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: "include node_monitoring"
+      include_role:
+        name: node_monitoring

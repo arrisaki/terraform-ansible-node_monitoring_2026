@@ -1,0 +1,43 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Create app directory
+  ansible.builtin.file:
+    path: /home/test_user/kasp-project/app
+    state: directory
+    mode: '0755'
+
+- name: Copy requirements.txt
+  ansible.builtin.copy:
+    src: requirements.txt
+    dest: /home/test_user/kasp-project/app/requirements.txt
+
+- name: Copy app.py
+  ansible.builtin.copy:
+    src: app.py
+    dest: /home/test_user/kasp-project/app/app.py
+
+- name: Set up env
+  ansible.builtin.command:
+    cmd: python3 -m venv /home/test_user/kasp-project/venv
+
+- name: Install requirements
+  ansible.builtin.pip:
+    requirements: /home/test_user/kasp-project/app/requirements.txt
+    virtualenv: /home/test_user/kasp-project/venv
+
+- name: Create systemd unit
+  ansible.builtin.template:
+    src: node-monitoring.j2 
+    dest: /etc/systemd/system/node-monitoring.service
+  notify:
+    - Reload systemd
+
+- name: Run handlers before service start
+  meta: flush_handlers
+
+- name: Start and enable service
+  ansible.builtin.systemd:
+    name: node-monitoring
+    state: started 
+    enabled: true   
+

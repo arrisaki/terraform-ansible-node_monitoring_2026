@@ -1,0 +1,13 @@
+[Unit] 
+Description=Node-Monitoring Service
+After=network.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+WorkingDirectory=/home/neumann/kasp-project/app
+ExecStart=/home/neumann/kasp-project/venv/bin/python /home/neumann/kasp-project/app/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

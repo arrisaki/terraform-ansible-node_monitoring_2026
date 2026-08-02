@@ -1,0 +1,22 @@
+---
+- name: Update apt cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Docker
+  become: true 
+  ansible.builtin.apt:
+    name:
+      - docker.io
+    state: present
+
+- name: Start Docker service
+  become: true 
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+

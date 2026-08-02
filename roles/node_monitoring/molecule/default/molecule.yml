@@ -1,0 +1,31 @@
+---
+# Dependency management (download roles/collections)
+prerun: false
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: libvirt 
+platforms:
+  - name: debian-instance
+    box: debian/bookworm64
+    memory: 1024
+    cpus: 1
+  - name: redhat-instance
+    box: generic/rocky9
+    memory: 1024
+    cpus: 1
+
+provisioner:
+  name: ansible
+  config_options:
+    defaults: 
+       role_name_check: 0
+verifier:
+  name: ansible  
+
+
+
+
+

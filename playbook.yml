@@ -1,0 +1,10 @@
+
+---
+- name: Deploy node monitoring service
+  hosts: all
+  become: true
+
+  roles:
+    - role: node_monitoring
+
+  
