@@ -1,8 +1,17 @@
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
-*.tfvars
-*.tfvars.json
-*.tf.save
 crash.log
 crash.*.log
+
+# Vagrant
+.vagrant/
+
+# VirtualBox
+*.vbox
+*.vbox-prev
+*.vdi
+
+# Archives
+roles.tar.gz
