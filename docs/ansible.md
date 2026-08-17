@@ -50,7 +50,7 @@ For `systemd` mode:
 ```yaml
 deploy_mode: systemd
 ```
-
+![Systemd deployment mode](images/deploy_node_systemd.png)
 For container deployment:
 
 ```yaml
