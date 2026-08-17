@@ -5,6 +5,7 @@
 crash.log
 crash.*.log
 
+
 # Vagrant
 .vagrant/
 
@@ -15,3 +16,13 @@ crash.*.log
 
 # Archives
 roles.tar.gz
+=======
+.terraform.lock.hcl
+.vagrant/
+*.log
+*.tar.gz 
+__pycache__/
+/*.pyc
+.molecule/
+
+
