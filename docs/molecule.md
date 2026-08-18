@@ -112,7 +112,7 @@ After connecting to a virtual machine, check the `node-monitoring` service:
 ```bash
 sudo systemctl status node-monitoring
 ```
-
+![Systemd service status](images/systemd_status.png)
 A successful deployment should show:
 
 ```text
@@ -134,6 +134,7 @@ A successful result should show the Python process listening on:
 ```text
 0.0.0.0:8080
 ```
+![Port 8080 check](images/port_8080.png)
 
 This confirms that the application started successfully.
 
@@ -156,7 +157,7 @@ Change the deployment mode to:
 ```yaml
 deploy_mode: docker
 ```
-
+![Docker deployment mode](images/deploy_mode_docker.png)
 ## 8. Create the Docker Test Environment
 
 Create fresh virtual machines:
@@ -184,7 +185,7 @@ Check the running Docker containers:
 ```bash
 docker ps
 ```
-
+![Node monitoring container running in Docker](images/docker_ps_node_monitoring.png)
 A successful deployment should show a running container named:
 
 ```text
@@ -219,7 +220,7 @@ Check the containers:
 ```bash
 sudo podman ps -a
 ```
-
+![Node monitoring container running in Podman](images/podman_ps_node_monitoring.png)
 The `node-monitoring` container should be running and expose port `8080`.
 
 ## 11. Clean Up the Test Environment
